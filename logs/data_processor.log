@@ -1,12 +1,12 @@
-data_processor:DEBUG 2021-11-30 07:49:24,280 -  Starting Class
-data_processor:DEBUG 2021-11-30 07:49:24,283 -  Current full_df.head()
+data_processor:DEBUG 2021-11-30 12:05:27,002 -  Starting Class
+data_processor:DEBUG 2021-11-30 12:05:27,006 -  Current full_df.head()
    Unnamed: 0                                          Title                                            Address    Area   Bedrooms    Bathrooms Garage Cars           Rent Condominium
 0           0  Apartamento com 3 Quartos para Aluguel, 100m²  Rua Doutor Eduardo de Souza Aranha, 140 - Vila...  100 m²  3 Quartos  3 Banheiros      1 Vaga  R$ 8.500 /mês      R$ 600
 1           1   Apartamento com 2 Quartos para Aluguel, 70m²  Rua Álvaro de Carvalho, 134 - Centro, São Paul...   70 m²  2 Quartos  2 Banheiros      1 Vaga  R$ 2.100 /mês      R$ 780
 2           2  Apartamento com 2 Quartos para Aluguel, 110m²  Avenida dos Eucaliptos, 113 - Moema, São Paulo...  110 m²  2 Quartos  3 Banheiros     2 Vagas  R$ 4.200 /mês    R$ 1.400
 3           3      Apartamento com Quarto para Aluguel, 39m²  Rua José Getúlio, 109 - Liberdade, São Paulo - SP   39 m²   1 Quarto   1 Banheiro      1 Vaga  R$ 2.700 /mês      R$ 540
 4           4      Apartamento com Quarto para Aluguel, 45m²  Rua Barão de Jaceguai, 1274 - Campo Belo, São ...   45 m²   1 Quarto   1 Banheiro      1 Vaga  R$ 1.950 /mês      R$ 580
-data_processor:DEBUG 2021-11-30 07:49:24,291 -  Current full_df.info()
+data_processor:DEBUG 2021-11-30 12:05:27,015 -  Current full_df.info()
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 9902 entries, 0 to 9901
 Data columns (total 9 columns):
@@ -24,20 +24,20 @@ Data columns (total 9 columns):
 dtypes: int64(1), object(8)
 memory usage: 696.4+ KB
 
-data_processor:DEBUG 2021-11-30 07:49:24,294 -  Checking frequency of Aluguel in rows: 9902
-data_processor:DEBUG 2021-11-30 07:49:24,294 -  Dropping Title Column from full_df
-data_processor:DEBUG 2021-11-30 07:49:24,295 -  Converting string columns into integer
-data_processor:DEBUG 2021-11-30 07:49:24,374 -  Fixing Address Outliers
-data_processor:DEBUG 2021-11-30 07:49:24,384 -  Extracting District from Address
-data_processor:DEBUG 2021-11-30 07:49:24,423 -  Renaming full_df columns
-data_processor:DEBUG 2021-11-30 07:49:24,426 -  Current full_df.head()
+data_processor:DEBUG 2021-11-30 12:05:27,018 -  Checking frequency of Aluguel in rows: 9902
+data_processor:DEBUG 2021-11-30 12:05:27,018 -  Dropping Title Column from full_df
+data_processor:DEBUG 2021-11-30 12:05:27,019 -  Converting string columns into integer
+data_processor:DEBUG 2021-11-30 12:05:27,098 -  Fixing Address Outliers
+data_processor:DEBUG 2021-11-30 12:05:27,107 -  Extracting District from Address
+data_processor:DEBUG 2021-11-30 12:05:27,144 -  Renaming full_df columns
+data_processor:DEBUG 2021-11-30 12:05:27,147 -  Current full_df.head()
               District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Rent (R$)  Condominium Fee (R$)
 0  Vila Nova Conceição        100         3          3            1       8500                   600
 1               Centro         70         2          2            1       2100                   780
 2                Moema        110         2          3            2       4200                  1400
 3            Liberdade         39         1          1            1       2700                   540
 4           Campo Belo         45         1          1            1       1950                   580
-data_processor:DEBUG 2021-11-30 07:49:24,430 -  Current full_df.info()
+data_processor:DEBUG 2021-11-30 12:05:27,151 -  Current full_df.info()
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 9902 entries, 0 to 9901
 Data columns (total 7 columns):
@@ -53,21 +53,21 @@ Data columns (total 7 columns):
 dtypes: int16(4), int32(2), object(1)
 memory usage: 232.2+ KB
 
-data_processor:DEBUG 2021-11-30 07:49:24,431 -  Checking the similarity among District strings
-data_processor:DEBUG 2021-11-30 07:49:24,457 -  [('Pinheiros', 100), ('Alto de Pinheiros', 90)]
-data_processor:DEBUG 2021-11-30 07:49:24,484 -  [('Moema', 100), ('e', 90)]
-data_processor:DEBUG 2021-11-30 07:49:24,508 -  [('Brooklin', 100), ('o', 90)]
-data_processor:DEBUG 2021-11-30 07:49:24,529 -  [('Vila Mariana', 100), ('Vila Maria', 91)]
-data_processor:DEBUG 2021-11-30 07:49:24,551 -  [('Itaim Bibi', 100), ('Itaim Paulista', 64)]
-data_processor:DEBUG 2021-11-30 07:49:24,572 -  [('Bela Vista', 100), ('Vila Bela Vista', 90)]
-data_processor:DEBUG 2021-11-30 07:49:24,593 -  [('Vila Olímpia', 100), ('Vila Nova Conceição', 86)]
-data_processor:DEBUG 2021-11-30 07:49:24,612 -  [('Jardim Paulista', 100), ('Jardim Paulistano', 94)]
-data_processor:DEBUG 2021-11-30 07:49:24,636 -  [('Perdizes', 100), ('Jardim das Perdizes', 90)]
-data_processor:DEBUG 2021-11-30 07:49:24,658 -  [('Campo Belo', 100), ('Campo Limpo', 76)]
-data_processor:DEBUG 2021-11-30 07:49:24,658 -  None of them is a misspelling of the other, therefore no corrections needed
-data_processor:DEBUG 2021-11-30 07:49:24,658 -  Grouping the less frequent districts into a single category
-data_processor:DEBUG 2021-11-30 07:49:25,053 -  Creating Total Value and Value per m² features
-data_processor:DEBUG 2021-11-30 07:49:25,055 -  Looking into apartments with largest Area (m²) values through value_counts():
+data_processor:DEBUG 2021-11-30 12:05:27,151 -  Checking the similarity among District strings
+data_processor:DEBUG 2021-11-30 12:05:27,178 -  [('Pinheiros', 100), ('Alto de Pinheiros', 90)]
+data_processor:DEBUG 2021-11-30 12:05:27,205 -  [('Moema', 100), ('e', 90)]
+data_processor:DEBUG 2021-11-30 12:05:27,230 -  [('Brooklin', 100), ('o', 90)]
+data_processor:DEBUG 2021-11-30 12:05:27,255 -  [('Vila Mariana', 100), ('Vila Maria', 91)]
+data_processor:DEBUG 2021-11-30 12:05:27,279 -  [('Itaim Bibi', 100), ('Itaim Paulista', 64)]
+data_processor:DEBUG 2021-11-30 12:05:27,302 -  [('Bela Vista', 100), ('Vila Bela Vista', 90)]
+data_processor:DEBUG 2021-11-30 12:05:27,324 -  [('Vila Olímpia', 100), ('Vila Nova Conceição', 86)]
+data_processor:DEBUG 2021-11-30 12:05:27,344 -  [('Jardim Paulista', 100), ('Jardim Paulistano', 94)]
+data_processor:DEBUG 2021-11-30 12:05:27,368 -  [('Perdizes', 100), ('Jardim das Perdizes', 90)]
+data_processor:DEBUG 2021-11-30 12:05:27,390 -  [('Campo Belo', 100), ('Campo Limpo', 76)]
+data_processor:DEBUG 2021-11-30 12:05:27,390 -  None of them is a misspelling of the other, therefore no corrections needed
+data_processor:DEBUG 2021-11-30 12:05:27,390 -  Grouping the less frequent districts into a single category
+data_processor:DEBUG 2021-11-30 12:05:27,769 -  Creating Total Value and Value per m² features
+data_processor:DEBUG 2021-11-30 12:05:27,771 -  Looking into apartments with largest Area (m²) values through value_counts():
 3880    1
 1108    1
 840     1
@@ -79,10 +79,10 @@ data_processor:DEBUG 2021-11-30 07:49:25,055 -  Looking into apartments with lar
 630     1
 626     3
 Name: Area (m²), dtype: int64
-data_processor:DEBUG 2021-11-30 07:49:25,058 -  Dropping the following item(s):
+data_processor:DEBUG 2021-11-30 12:05:27,773 -  Dropping the following item(s):
           District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Rent (R$)  Condominium Fee (R$)  Total Value (R$)  Value per m²
 8556  Vila Buarque       3880         2          1            0       2600                     0              2600          0.67
-data_processor:DEBUG 2021-11-30 07:49:25,060 -  Looking into apartments with largest Bedrooms values through value_counts():
+data_processor:DEBUG 2021-11-30 12:05:27,775 -  Looking into apartments with largest Bedrooms values through value_counts():
 14       1
 5       26
 4      492
@@ -90,10 +90,10 @@ data_processor:DEBUG 2021-11-30 07:49:25,060 -  Looking into apartments with lar
 2     4121
 1     2806
 Name: Bedrooms, dtype: int64
-data_processor:DEBUG 2021-11-30 07:49:25,062 -  Dropping the following item(s):
+data_processor:DEBUG 2021-11-30 12:05:27,777 -  Dropping the following item(s):
      District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Rent (R$)  Condominium Fee (R$)  Total Value (R$)  Value per m²
 4771    Moema         90        14          4            3       4400                  1170              5570         61.89
-data_processor:DEBUG 2021-11-30 07:49:25,064 -  Looking into apartments with largest Garage Cars values through value_counts():
+data_processor:DEBUG 2021-11-30 12:05:27,779 -  Looking into apartments with largest Garage Cars values through value_counts():
 42     1
 26     1
 21     1
@@ -105,14 +105,14 @@ data_processor:DEBUG 2021-11-30 07:49:25,064 -  Looking into apartments with lar
 6     31
 5     49
 Name: Garage Cars, dtype: int64
-data_processor:DEBUG 2021-11-30 07:49:25,066 -  Dropping the following item(s):
+data_processor:DEBUG 2021-11-30 12:05:27,781 -  Dropping the following item(s):
                  District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Rent (R$)  Condominium Fee (R$)  Total Value (R$)  Value per m²
 554   Vila Nova Conceição        229         2          6           21      25000                  4185             29185        127.45
 2442                Outro        267         3          5           26      10500                  1750             12250         45.88
 2644            Pinheiros        116         3          2           11       3700                  1750              5450         46.98
 8559                Moema         42         1          1           42       2500                   840              3340         79.52
 8971                Outro         45         2          1           11       2000                   360              2360         52.44
-data_processor:DEBUG 2021-11-30 07:49:25,068 -  Looking into apartments with largest Rent (R$) values through value_counts():
+data_processor:DEBUG 2021-11-30 12:05:27,783 -  Looking into apartments with largest Rent (R$) values through value_counts():
 1280000    1
 1200000    1
 490000     1
@@ -124,13 +124,13 @@ data_processor:DEBUG 2021-11-30 07:49:25,068 -  Looking into apartments with lar
 75000      3
 70000      2
 Name: Rent (R$), dtype: int64
-data_processor:DEBUG 2021-11-30 07:49:25,070 -  Dropping the following item(s):
+data_processor:DEBUG 2021-11-30 12:05:27,785 -  Dropping the following item(s):
             District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Rent (R$)  Condominium Fee (R$)  Total Value (R$)  Value per m²
 2025           Outro         70         2          2            2    1200000                     0           1200000     17,142.86
 2756  Vila Anastácio        134         3          7            2    1280000                  1200           1281200      9,561.19
 5046      Bom Retiro        100         2          2            0     430000                   650            430650      4,306.50
 9854           Outro         41         1          1            0     490000                   413            490413     11,961.29
-data_processor:DEBUG 2021-11-30 07:49:25,072 -  Looking into apartments with largest Condominium Fee (R$) values through value_counts():
+data_processor:DEBUG 2021-11-30 12:05:27,787 -  Looking into apartments with largest Condominium Fee (R$) values through value_counts():
 7500000    1
 1042500    1
 740000     1
@@ -142,7 +142,7 @@ data_processor:DEBUG 2021-11-30 07:49:25,072 -  Looking into apartments with lar
 58285      1
 55000      1
 Name: Condominium Fee (R$), dtype: int64
-data_processor:DEBUG 2021-11-30 07:49:25,074 -  Dropping the following item(s):
+data_processor:DEBUG 2021-11-30 12:05:27,789 -  Dropping the following item(s):
                District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Rent (R$)  Condominium Fee (R$)  Total Value (R$)  Value per m²
 96               Sumaré         50         1          1            1       6000                 78140             84140      1,682.80
 551               Outro         75         3          1            1       1300                715000            716300      9,550.67
@@ -155,7 +155,7 @@ data_processor:DEBUG 2021-11-30 07:49:25,074 -  Dropping the following item(s):
 7939           Brooklin         58         2          2            1       3400                740000            743400     12,817.24
 9220              Saúde         70         2          2            2       3000               1042500           1045500     14,935.71
 9755          Jabaquara         68         2          1            1       1400                 58285             59685        877.72
-data_processor:DEBUG 2021-11-30 07:49:25,077 -  Looking into apartments with largest Value per m² values through value_counts():
+data_processor:DEBUG 2021-11-30 12:05:27,792 -  Looking into apartments with largest Value per m² values through value_counts():
 316.67    1
 293.16    1
 272.00    2
@@ -167,7 +167,7 @@ data_processor:DEBUG 2021-11-30 07:49:25,077 -  Looking into apartments with lar
 215.48    1
 207.63    1
 Name: Value per m², dtype: int64
-data_processor:DEBUG 2021-11-30 07:49:25,080 -  Dropping the following item(s):
+data_processor:DEBUG 2021-11-30 12:05:27,795 -  Dropping the following item(s):
                  District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Rent (R$)  Condominium Fee (R$)  Total Value (R$)  Value per m²
 54                  Outro        183         3          2            0       2200                   590              2790         15.25
 2684                Moema        430         1          1            1       4300                   949              5249         12.21
@@ -184,15 +184,15 @@ data_processor:DEBUG 2021-11-30 07:49:25,080 -  Dropping the following item(s):
 7999              Santana        354         3          1            4       1254                  3507              4761         13.45
 8806                Outro        102         2          1            1       1000                   333              1333         13.07
 9368                Outro        100         2          1            0       1550                     0              1550         15.50
-data_processor:DEBUG 2021-11-30 07:49:25,080 -  Creating full_df.csv
-data_processor:DEBUG 2021-11-30 07:49:25,122 -  Current full_df.head()
+data_processor:DEBUG 2021-11-30 12:05:27,796 -  Creating full_df.csv
+data_processor:DEBUG 2021-11-30 12:05:27,838 -  Current full_df.head()
               District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Rent (R$)  Condominium Fee (R$)  Total Value (R$)  Value per m²
 0  Vila Nova Conceição        100         3          3            1       8500                   600              9100         91.00
 1               Centro         70         2          2            1       2100                   780              2880         41.14
 2                Moema        110         2          3            2       4200                  1400              5600         50.91
 3            Liberdade         39         1          1            1       2700                   540              3240         83.08
 4           Campo Belo         45         1          1            1       1950                   580              2530         56.22
-data_processor:DEBUG 2021-11-30 07:49:25,127 -  Current full_df.info()
+data_processor:DEBUG 2021-11-30 12:05:27,843 -  Current full_df.info()
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 9865 entries, 0 to 9864
 Data columns (total 9 columns):
@@ -210,10 +210,10 @@ Data columns (total 9 columns):
 dtypes: float32(1), int16(4), int32(3), object(1)
 memory usage: 308.4+ KB
 
-data_processor:DEBUG 2021-11-30 07:49:25,127 -  Encoding district as ordinals
-data_processor:DEBUG 2021-11-30 07:49:25,130 -  Creating X and y dataframes
-data_processor:DEBUG 2021-11-30 07:49:25,131 -  Creating X and y train/test splits
-data_processor:DEBUG 2021-11-30 07:49:25,133 -  Creating test_leakage.csv
-data_processor:DEBUG 2021-11-30 07:49:25,136 -  Creating test.csv
-data_processor:DEBUG 2021-11-30 07:49:25,142 -  Creating train.csv
-data_processor:DEBUG 2021-11-30 07:49:25,163 -  Ending Class
+data_processor:DEBUG 2021-11-30 12:05:27,843 -  Encoding district as ordinals
+data_processor:DEBUG 2021-11-30 12:05:27,846 -  Creating X and y dataframes
+data_processor:DEBUG 2021-11-30 12:05:27,847 -  Creating X and y train/test splits
+data_processor:DEBUG 2021-11-30 12:05:27,848 -  Creating test_leakage.csv
+data_processor:DEBUG 2021-11-30 12:05:27,852 -  Creating test.csv
+data_processor:DEBUG 2021-11-30 12:05:27,857 -  Creating train.csv
+data_processor:DEBUG 2021-11-30 12:05:27,879 -  Ending Class

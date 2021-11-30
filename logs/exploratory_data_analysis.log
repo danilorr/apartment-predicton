@@ -1,12 +1,12 @@
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:17,400 -  Starting Class
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:17,402 -  Current full_df.head()
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:27,906 -  Starting Class
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:27,908 -  Current full_df.head()
               District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Rent (R$)  Condominium Fee (R$)  Total Value (R$)  Value per m²
 0  Vila Nova Conceição        100         3          3            1       8500                   600              9100         91.00
 1               Centro         70         2          2            1       2100                   780              2880         41.14
 2                Moema        110         2          3            2       4200                  1400              5600         50.91
 3            Liberdade         39         1          1            1       2700                   540              3240         83.08
 4           Campo Belo         45         1          1            1       1950                   580              2530         56.22
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:17,407 -  Current full_df.info()
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:27,913 -  Current full_df.info()
 <class 'pandas.core.frame.DataFrame'>
 Int64Index: 9865 entries, 0 to 9864
 Data columns (total 9 columns):
@@ -24,7 +24,7 @@ Data columns (total 9 columns):
 dtypes: category(1), float32(1), int16(4), int32(3)
 memory usage: 320.6 KB
 
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:17,421 -  Current full_df.describe()
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:27,929 -  Current full_df.describe()
        Area (m²)  Bedrooms  Bathrooms  Garage Cars  Rent (R$)  Condominium Fee (R$)  Total Value (R$)  Value per m²
 count   9,865.00  9,865.00   9,865.00     9,865.00   9,865.00              9,865.00          9,865.00      9,865.00
 mean       83.47      2.07       1.97         1.31   4,048.40                956.65          5,005.05         58.18
@@ -34,17 +34,17 @@ min        10.00      1.00       1.00         0.00     500.00                  0
 50%        66.00      2.00       2.00         1.00   2,600.00                750.00          3,400.00         52.20
 75%        95.00      3.00       2.00         2.00   4,000.00              1,100.00          5,150.00         70.00
 max       753.00      5.00       8.00        10.00 180,000.00             24,000.00        204,000.00        272.00
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:17,421 -  Generating district_x_area.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:20,396 -  Generating district_x_value.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:23,324 -  Generating district_x_valuepm.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:26,406 -  Generating describe_df.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:26,420 -  Generating describe_area.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:26,594 -  Generating describe_bedrooms.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:26,753 -  Generating describe_bathrooms.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:26,917 -  Generating describe_garagecars.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:27,076 -  Generating describe_rent.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:27,299 -  Generating describe_condfee.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:27,460 -  Generating describe_value.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:27,630 -  Generating describe_valuepm.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:27,791 -  Generating feats_correlation_heatmap.png
-exploratory_data_analyser:DEBUG 2021-11-26 06:27:28,101 -  Ending Class
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:27,929 -  Generating district_x_area.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:31,046 -  Generating district_x_value.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:33,948 -  Generating district_x_valuepm.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:37,144 -  Generating describe_df.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:37,158 -  Generating describe_area.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:37,341 -  Generating describe_bedrooms.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:37,507 -  Generating describe_bathrooms.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:37,679 -  Generating describe_garagecars.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:37,918 -  Generating describe_rent.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:38,091 -  Generating describe_condfee.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:38,263 -  Generating describe_value.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:38,442 -  Generating describe_valuepm.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:38,608 -  Generating feats_correlation_heatmap.png
+exploratory_data_analyser:DEBUG 2021-11-30 12:05:38,934 -  Ending Class

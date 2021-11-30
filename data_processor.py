@@ -156,9 +156,7 @@ class DataProcessor:
 
     def district_encoder(self):
         self.logger.debug('Encoding district as ordinals')
-        print(self.full_df['District'].head(10))
         self.full_df['District'] = self.le.fit_transform(self.full_df['District'])
-        print(self.full_df['District'].head(10))
 
     def create_x_and_y_dfs(self):
         self.logger.debug('Creating X and y dataframes')

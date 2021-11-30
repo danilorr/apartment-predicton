@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 from final_model_trainer import ModelTrainer
 from sklearn.preprocessing import LabelEncoder
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 class WebApp:
@@ -24,6 +26,8 @@ class WebApp:
         self.user_input_features()
         self.create_predict_df()
         self.predict_price()
+        self.create_valperm2_feat_df()
+        self.create_boxplot()
 
     def df_type_changer_base(self, df, type_list):
         col_list = df.columns
@@ -32,7 +36,7 @@ class WebApp:
 
     def df_type_changer(self):
         self.df_type_changer_base(self.full_df,
-                                  ['category', 'int16', 'int16', 'int16', 'int16',
+                                  ['str', 'int16', 'int16', 'int16', 'int16',
                                    'int32', 'int32', 'int32', 'float32'])
 
     def title(self):
@@ -95,7 +99,47 @@ class WebApp:
         self.prediction = self.model.forest.predict(self.predict_df)
         self.prediction = np.around(self.prediction, 2)
         st.write("#")
-        st.write(f'O valor estimado do apartamento é: **{self.prediction.item(0)}**')
+        st.write(f'#### O valor estimado do aluguel é: **{self.prediction.item(0)} R$**')
+        st.write("#")
+
+    def create_valperm2_feat_df(self):
+        self.features_df['Value per m²'] = self.prediction / self.features_df['Area (m²)']
+
+    def create_boxplot_base(self, feature, feat_name, hline):
+        plot_df = self.full_df.copy()
+        plot_df['District'] = 'Cidade de São Paulo'
+        plot_df = plot_df.append(self.full_df.loc[self.full_df['District'].isin(self.features_df['District'].values)])
+        fig, ax = plt.subplots()
+        sns.boxplot(x='District', y=feature, data=plot_df, ax=ax, showfliers=False,
+                    order=[self.features_df['District'].iloc[0], 'Cidade de São Paulo'])
+        ax.axhline(hline, ls='--')
+        ax.text(-0.5, hline, "Valor informado")
+        ax.set(xlabel='Local', ylabel=feat_name)
+        st.pyplot(fig)
+
+    def create_boxplot(self):
+        st.write('### Agora, alguns dados sobre o seu apartamento em comparação a outros do mesmo bairro e de toda a cidade de São Paulo ')
+        st.write('Para uma rápida explicação sobre como interpretar os gráficos abaixo, '
+                 'clique [neste link](https://pt.wikipedia.org/wiki/Diagrama_de_caixa)')
+        st.write('#### Comparação de Aluguel por Local')
+        self.create_boxplot_base('Rent (R$)', 'Aluguel (R$)', self.prediction)
+        st.write("#")
+        st.write("#")
+        st.write('#### Comparação de Área por Local')
+        self.create_boxplot_base('Area (m²)', 'Área (m²)', self.features_df['Area (m²)'].iloc[0])
+        st.write("#")
+        st.write("#")
+        st.write('#### Comparação de Taxa de Condomínio por Local')
+        self.create_boxplot_base('Condominium Fee (R$)', 'Condomínio (R$)',
+                                 self.features_df['Condominium Fee (R$)'].iloc[0])
+        st.write("#")
+        st.write("#")
+        st.write('#### Comparação de Valor de Metro Quadrado por Local')
+        self.create_boxplot_base('Value per m²', 'Valor por m²', self.features_df['Value per m²'].iloc[0])
+        st.write("#")
+        st.write("#")
+        st.write("#")
+        st.write('Obrigado por utilizar a minha calculadora :) -- Danilo Rosmaninho')
 
 
 

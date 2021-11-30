@@ -74,7 +74,7 @@ class ModelTrainer:
     def create_prediction_csv(self):
         self.logger.debug('Creating test_leakage_prediction.csv')
         prediction = pd.DataFrame({'Rent (R$)': self.y_pred})
-        prediction.to_csv('C:/Users/Windows/PycharmProjects/VivaReal/.csv files/test_leakage_prediction.csv')
+        prediction.to_csv('.csv files/test_leakage_prediction.csv')
 
     def model_scorer(self):
         score = mse(self.y_pred, self.test_leakage['Rent (R$)'], squared=False)

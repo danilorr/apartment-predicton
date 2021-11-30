@@ -1,14 +1,12 @@
-model_selector:DEBUG 2021-11-27 08:16:03,020 -  Starting Class
-model_selector:DEBUG 2021-11-27 08:16:03,027 -  Current train.head()
-   District  Area (m²)  Bedrooms  ...  Garage Cars  Condominium Fee (R$)  Rent (R$)
-0        66        172         3  ...            3                  1700       6200
-1        20         50         1  ...            0                   390       1800
-2        42         70         2  ...            1                   747       1800
-3         4         90         3  ...            1                   750       2600
-4        74         50         2  ...            2                   781       1100
-
-[5 rows x 7 columns]
-model_selector:DEBUG 2021-11-27 08:16:03,032 -  Current train.info()
+model_selector:DEBUG 2021-11-30 12:05:38,959 -  Starting Class
+model_selector:DEBUG 2021-11-30 12:05:38,961 -  Current train.head()
+   District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Condominium Fee (R$)  Rent (R$)
+0        66        172         3          4            3                  1700       6200
+1        20         50         1          1            0                   390       1800
+2        42         70         2          2            1                   747       1800
+3         4         90         3          3            1                   750       2600
+4        74         50         2          1            2                   781       1100
+model_selector:DEBUG 2021-11-30 12:05:38,966 -  Current train.info()
 <class 'pandas.core.frame.DataFrame'>
 Int64Index: 7892 entries, 0 to 7891
 Data columns (total 7 columns):
@@ -24,14 +22,14 @@ Data columns (total 7 columns):
 dtypes: int16(4), int32(2), int8(1)
 memory usage: 192.7 KB
 
-model_selector:DEBUG 2021-11-27 08:16:03,037 -  Current test.head()
+model_selector:DEBUG 2021-11-30 12:05:38,967 -  Current test.head()
    District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Condominium Fee (R$)
 0        39         50         1          2            1                   831
 1        11         43         1          2            1                   580
 2        42         65         2          1            1                   600
 3         7         68         2          2            2                   900
 4        16         68         2          2            1                  1000
-model_selector:DEBUG 2021-11-27 08:16:03,041 -  Current test.info()
+model_selector:DEBUG 2021-11-30 12:05:38,971 -  Current test.info()
 <class 'pandas.core.frame.DataFrame'>
 Int64Index: 1973 entries, 0 to 1972
 Data columns (total 6 columns):
@@ -46,38 +44,38 @@ Data columns (total 6 columns):
 dtypes: int16(4), int32(1), int8(1)
 memory usage: 40.5 KB
 
-model_selector:DEBUG 2021-11-27 08:16:03,041 -  Creating X and y dataframes
-model_selector:DEBUG 2021-11-27 08:16:03,042 -  Creating train test split
-model_selector:DEBUG 2021-11-27 08:16:03,043 -  Creating the xgboost model for feature importance check
-model_selector:DEBUG 2021-11-27 08:16:03,047 -  Initializing Bayes Search
-model_selector:DEBUG 2021-11-27 08:16:14,428 -  The best parameters for the xgboost are:
-OrderedDict([('colsample_bytree', 0.709040192399226), ('learning_rate', 0.5739676968748614), ('max_depth', 54), ('n_estimators', 107), ('reg_alpha', 60.876004184549515), ('subsample', 0.27384834076635417)])
-model_selector:DEBUG 2021-11-27 08:16:14,648 -  Plotting features
-model_selector:DEBUG 2021-11-27 08:16:14,918 -  Dropping low importance features
-model_selector:DEBUG 2021-11-27 08:16:14,920 -  Testing the linear regression model
-model_selector:DEBUG 2021-11-27 08:16:14,927 -  The Linear Regressor score was: 3484.0556306913463
-model_selector:DEBUG 2021-11-27 08:16:14,929 -  Testing the Elastic Net model
-model_selector:DEBUG 2021-11-27 08:16:14,929 -  Initializing Bayes Search
-model_selector:DEBUG 2021-11-27 08:16:15,206 -  The best parameters for the Elastic Net are:
-OrderedDict([('alpha', 0.23360251807788446), ('l1_ratio', 0.30314203240703036), ('max_iter', 4809)])
-model_selector:DEBUG 2021-11-27 08:16:15,209 -  The Elastic Net score was: 3484.040899949221
-model_selector:DEBUG 2021-11-27 08:16:15,212 -  Testing the Decision Tree model
-model_selector:DEBUG 2021-11-27 08:16:15,212 -  Initializing Bayes Search
-model_selector:DEBUG 2021-11-27 08:16:15,501 -  The best parameters for the Decision Tree are:
-OrderedDict([('criterion', 'poisson'), ('max_depth', 523), ('max_leaf_nodes', 867), ('min_samples_split', 173), ('splitter', 'random')])
-model_selector:DEBUG 2021-11-27 08:16:15,518 -  The Decision Tree score was: 4067.703564646041
-model_selector:DEBUG 2021-11-27 08:16:15,521 -  Testing the Random Forest model
-model_selector:DEBUG 2021-11-27 08:16:15,521 -  Initializing Bayes Search
-model_selector:DEBUG 2021-11-27 08:22:16,117 -  The best parameters for the Random Forest are:
-OrderedDict([('criterion', 'squared_error'), ('max_depth', 89), ('max_leaf_nodes', 859), ('min_samples_split', 185), ('n_estimators', 710)])
-model_selector:DEBUG 2021-11-27 08:22:17,123 -  The Random Forest score was: 3274.5389659000766
-model_selector:DEBUG 2021-11-27 08:22:17,125 -  Testing the AdaBoost model
-model_selector:DEBUG 2021-11-27 08:22:17,125 -  Initializing Bayes Search
-model_selector:DEBUG 2021-11-27 08:22:43,040 -  The best parameters for the AdaBoost are:
-OrderedDict([('learning_rate', 0.4245626931996991), ('loss', 'square'), ('n_estimators', 3562)])
-model_selector:DEBUG 2021-11-27 08:22:43,140 -  The AdaBoost score was: 3752.1312591772667
-model_selector:DEBUG 2021-11-27 08:22:43,140 -  Testing the xgboost model
-model_selector:DEBUG 2021-11-27 08:22:43,283 -  The XGBoost score was: 3376.592375688016
-model_selector:DEBUG 2021-11-27 08:22:43,283 -  Finding the best scoring model
-model_selector:DEBUG 2021-11-27 08:22:43,283 -  The best model is: Random Forest
-model_selector:DEBUG 2021-11-27 08:22:43,284 -  Ending Class
+model_selector:DEBUG 2021-11-30 12:05:38,971 -  Creating X and y dataframes
+model_selector:DEBUG 2021-11-30 12:05:38,972 -  Creating train test split
+model_selector:DEBUG 2021-11-30 12:05:38,974 -  Creating the xgboost model for feature importance check
+model_selector:DEBUG 2021-11-30 12:05:38,977 -  Initializing Bayes Search
+model_selector:DEBUG 2021-11-30 12:05:53,132 -  The best parameters for the xgboost are:
+OrderedDict([('colsample_bytree', 0.5438858749326592), ('learning_rate', 0.019302504710806967), ('max_depth', 56), ('n_estimators', 69), ('reg_alpha', 43.516069212652724), ('subsample', 0.5651715324885682)])
+model_selector:DEBUG 2021-11-30 12:05:53,351 -  Plotting features
+model_selector:DEBUG 2021-11-30 12:05:53,573 -  Dropping low importance features
+model_selector:DEBUG 2021-11-30 12:05:53,574 -  Testing the linear regression model
+model_selector:DEBUG 2021-11-30 12:05:53,618 -  The Linear Regressor score was: 3484.0556306913463
+model_selector:DEBUG 2021-11-30 12:05:53,620 -  Testing the Elastic Net model
+model_selector:DEBUG 2021-11-30 12:05:53,620 -  Initializing Bayes Search
+model_selector:DEBUG 2021-11-30 12:05:53,900 -  The best parameters for the Elastic Net are:
+OrderedDict([('alpha', 0.9203216857270128), ('l1_ratio', 0.5122112555901412), ('max_iter', 2686)])
+model_selector:DEBUG 2021-11-30 12:05:53,903 -  The Elastic Net score was: 3484.040899949221
+model_selector:DEBUG 2021-11-30 12:05:53,906 -  Testing the Decision Tree model
+model_selector:DEBUG 2021-11-30 12:05:53,906 -  Initializing Bayes Search
+model_selector:DEBUG 2021-11-30 12:05:54,215 -  The best parameters for the Decision Tree are:
+OrderedDict([('criterion', 'poisson'), ('max_depth', 568), ('max_leaf_nodes', 652), ('min_samples_split', 184), ('splitter', 'random')])
+model_selector:DEBUG 2021-11-30 12:05:54,233 -  The Decision Tree score was: 4067.703564646041
+model_selector:DEBUG 2021-11-30 12:05:54,236 -  Testing the Random Forest model
+model_selector:DEBUG 2021-11-30 12:05:54,236 -  Initializing Bayes Search
+model_selector:DEBUG 2021-11-30 12:10:22,339 -  The best parameters for the Random Forest are:
+OrderedDict([('criterion', 'squared_error'), ('max_depth', 1671), ('max_leaf_nodes', 242), ('min_samples_split', 176), ('n_estimators', 3903)])
+model_selector:DEBUG 2021-11-30 12:10:23,378 -  The Random Forest score was: 3274.5389659000766
+model_selector:DEBUG 2021-11-30 12:10:23,380 -  Testing the AdaBoost model
+model_selector:DEBUG 2021-11-30 12:10:23,380 -  Initializing Bayes Search
+model_selector:DEBUG 2021-11-30 12:10:47,369 -  The best parameters for the AdaBoost are:
+OrderedDict([('learning_rate', 0.20632825991117332), ('loss', 'exponential'), ('n_estimators', 1822)])
+model_selector:DEBUG 2021-11-30 12:10:47,471 -  The AdaBoost score was: 3752.1312591772667
+model_selector:DEBUG 2021-11-30 12:10:47,471 -  Testing the xgboost model
+model_selector:DEBUG 2021-11-30 12:10:47,613 -  The XGBoost score was: 3376.592375688016
+model_selector:DEBUG 2021-11-30 12:10:47,613 -  Finding the best scoring model
+model_selector:DEBUG 2021-11-30 12:10:47,613 -  The best model is: Random Forest
+model_selector:DEBUG 2021-11-30 12:10:47,613 -  Ending Class
