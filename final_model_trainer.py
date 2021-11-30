@@ -10,18 +10,18 @@ class ModelTrainer:
 
     def __init__(self):
         self.logger = logging.getLogger(__name__)
-        file_handler = logging.FileHandler("C:/Users/Windows/PycharmProjects/VivaReal/logs/final_model_trainer.log",
+        file_handler = logging.FileHandler("C:/Users/Windows/PycharmProjects/apartment-predict/logs/final_model_trainer.log",
                                            mode='w')
         self.logger.addHandler(file_handler)
         self.logger.setLevel(logging.DEBUG)
         log_format = '%(name)s:%(levelname)s %(asctime)s -  %(message)s'
         formatter = logging.Formatter(log_format)
         file_handler.setFormatter(formatter)
-        self.train = pd.read_csv('C:/Users/Windows/PycharmProjects/VivaReal/.csv files/train.csv',
+        self.train = pd.read_csv('C:/Users/Windows/PycharmProjects/apartment-predict/.csv files/train.csv',
                                  index_col=[0])
-        self.test = pd.read_csv('C:/Users/Windows/PycharmProjects/VivaReal/.csv files/test.csv',
+        self.test = pd.read_csv('C:/Users/Windows/PycharmProjects/apartment-predict/.csv files/test.csv',
                                 index_col=[0])
-        self.test_leakage = pd.read_csv('C:/Users/Windows/PycharmProjects/VivaReal/.csv files/test_leakage.csv',
+        self.test_leakage = pd.read_csv('C:/Users/Windows/PycharmProjects/apartment-predict/.csv files/test_leakage.csv',
                                         index_col=[0])
         df_list = [self.train, self.test]
         for df in df_list:

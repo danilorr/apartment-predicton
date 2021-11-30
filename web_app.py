@@ -13,7 +13,7 @@ class WebApp:
         pd.options.display.max_rows = 500
         pd.options.display.width = 0
         pd.options.display.float_format = '{:,.2f}'.format
-        self.full_df = pd.read_csv("C:/Users/Windows/PycharmProjects/VivaReal/.csv files/full_df.csv", index_col=[0])
+        self.full_df = pd.read_csv("C:/Users/Windows/PycharmProjects/apartment-predict/.csv files/full_df.csv", index_col=[0])
         self.model = ModelTrainer()
         self.model.web_model()
         self.le = LabelEncoder()
