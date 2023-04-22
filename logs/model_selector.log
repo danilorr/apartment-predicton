@@ -1,81 +1,81 @@
-model_selector:DEBUG 2021-11-30 12:05:38,959 -  Starting Class
-model_selector:DEBUG 2021-11-30 12:05:38,961 -  Current train.head()
+__main__:DEBUG 2023-04-21 23:48:12,480 -  Starting Class
+__main__:DEBUG 2023-04-21 23:48:12,487 -  Current train.head()
    District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Condominium Fee (R$)  Rent (R$)
-0        66        172         3          4            3                  1700       6200
-1        20         50         1          1            0                   390       1800
-2        42         70         2          2            1                   747       1800
-3         4         90         3          3            1                   750       2600
-4        74         50         2          1            2                   781       1100
-model_selector:DEBUG 2021-11-30 12:05:38,966 -  Current train.info()
+0        26         85         2          2            1                  1170       4485
+1        13         40         1          1            0                   500       1600
+2        16         90         2          2            1                   765       4100
+3         2         65         2          2            1                   800       3300
+4         9         90         2          2            2                  1300       7300
+__main__:DEBUG 2023-04-21 23:48:12,492 -  Current train.info()
 <class 'pandas.core.frame.DataFrame'>
-Int64Index: 7892 entries, 0 to 7891
+Int64Index: 6870 entries, 0 to 6869
 Data columns (total 7 columns):
  #   Column                Non-Null Count  Dtype
 ---  ------                --------------  -----
- 0   District              7892 non-null   int8 
- 1   Area (m²)             7892 non-null   int16
- 2   Bedrooms              7892 non-null   int16
- 3   Bathrooms             7892 non-null   int16
- 4   Garage Cars           7892 non-null   int16
- 5   Condominium Fee (R$)  7892 non-null   int32
- 6   Rent (R$)             7892 non-null   int32
+ 0   District              6870 non-null   int8 
+ 1   Area (m²)             6870 non-null   int16
+ 2   Bedrooms              6870 non-null   int16
+ 3   Bathrooms             6870 non-null   int16
+ 4   Garage Cars           6870 non-null   int16
+ 5   Condominium Fee (R$)  6870 non-null   int32
+ 6   Rent (R$)             6870 non-null   int32
 dtypes: int16(4), int32(2), int8(1)
-memory usage: 192.7 KB
+memory usage: 167.7 KB
 
-model_selector:DEBUG 2021-11-30 12:05:38,967 -  Current test.head()
+__main__:DEBUG 2023-04-21 23:48:12,497 -  Current test.head()
    District  Area (m²)  Bedrooms  Bathrooms  Garage Cars  Condominium Fee (R$)
-0        39         50         1          2            1                   831
-1        11         43         1          2            1                   580
-2        42         65         2          1            1                   600
-3         7         68         2          2            2                   900
-4        16         68         2          2            1                  1000
-model_selector:DEBUG 2021-11-30 12:05:38,971 -  Current test.info()
+0        48        128         3          3            1                  1220
+1        27         65         2          2            2                   646
+2        40         61         3          1            1                   660
+3        32         84         2          2            2                  1050
+4        29         32         1          1            0                     0
+__main__:DEBUG 2023-04-21 23:48:12,501 -  Current test.info()
 <class 'pandas.core.frame.DataFrame'>
-Int64Index: 1973 entries, 0 to 1972
+Int64Index: 1718 entries, 0 to 1717
 Data columns (total 6 columns):
  #   Column                Non-Null Count  Dtype
 ---  ------                --------------  -----
- 0   District              1973 non-null   int8 
- 1   Area (m²)             1973 non-null   int16
- 2   Bedrooms              1973 non-null   int16
- 3   Bathrooms             1973 non-null   int16
- 4   Garage Cars           1973 non-null   int16
- 5   Condominium Fee (R$)  1973 non-null   int32
+ 0   District              1718 non-null   int8 
+ 1   Area (m²)             1718 non-null   int16
+ 2   Bedrooms              1718 non-null   int16
+ 3   Bathrooms             1718 non-null   int16
+ 4   Garage Cars           1718 non-null   int16
+ 5   Condominium Fee (R$)  1718 non-null   int32
 dtypes: int16(4), int32(1), int8(1)
-memory usage: 40.5 KB
+memory usage: 35.2 KB
 
-model_selector:DEBUG 2021-11-30 12:05:38,971 -  Creating X and y dataframes
-model_selector:DEBUG 2021-11-30 12:05:38,972 -  Creating train test split
-model_selector:DEBUG 2021-11-30 12:05:38,974 -  Creating the xgboost model for feature importance check
-model_selector:DEBUG 2021-11-30 12:05:38,977 -  Initializing Bayes Search
-model_selector:DEBUG 2021-11-30 12:05:53,132 -  The best parameters for the xgboost are:
-OrderedDict([('colsample_bytree', 0.5438858749326592), ('learning_rate', 0.019302504710806967), ('max_depth', 56), ('n_estimators', 69), ('reg_alpha', 43.516069212652724), ('subsample', 0.5651715324885682)])
-model_selector:DEBUG 2021-11-30 12:05:53,351 -  Plotting features
-model_selector:DEBUG 2021-11-30 12:05:53,573 -  Dropping low importance features
-model_selector:DEBUG 2021-11-30 12:05:53,574 -  Testing the linear regression model
-model_selector:DEBUG 2021-11-30 12:05:53,618 -  The Linear Regressor score was: 3484.0556306913463
-model_selector:DEBUG 2021-11-30 12:05:53,620 -  Testing the Elastic Net model
-model_selector:DEBUG 2021-11-30 12:05:53,620 -  Initializing Bayes Search
-model_selector:DEBUG 2021-11-30 12:05:53,900 -  The best parameters for the Elastic Net are:
-OrderedDict([('alpha', 0.9203216857270128), ('l1_ratio', 0.5122112555901412), ('max_iter', 2686)])
-model_selector:DEBUG 2021-11-30 12:05:53,903 -  The Elastic Net score was: 3484.040899949221
-model_selector:DEBUG 2021-11-30 12:05:53,906 -  Testing the Decision Tree model
-model_selector:DEBUG 2021-11-30 12:05:53,906 -  Initializing Bayes Search
-model_selector:DEBUG 2021-11-30 12:05:54,215 -  The best parameters for the Decision Tree are:
-OrderedDict([('criterion', 'poisson'), ('max_depth', 568), ('max_leaf_nodes', 652), ('min_samples_split', 184), ('splitter', 'random')])
-model_selector:DEBUG 2021-11-30 12:05:54,233 -  The Decision Tree score was: 4067.703564646041
-model_selector:DEBUG 2021-11-30 12:05:54,236 -  Testing the Random Forest model
-model_selector:DEBUG 2021-11-30 12:05:54,236 -  Initializing Bayes Search
-model_selector:DEBUG 2021-11-30 12:10:22,339 -  The best parameters for the Random Forest are:
-OrderedDict([('criterion', 'squared_error'), ('max_depth', 1671), ('max_leaf_nodes', 242), ('min_samples_split', 176), ('n_estimators', 3903)])
-model_selector:DEBUG 2021-11-30 12:10:23,378 -  The Random Forest score was: 3274.5389659000766
-model_selector:DEBUG 2021-11-30 12:10:23,380 -  Testing the AdaBoost model
-model_selector:DEBUG 2021-11-30 12:10:23,380 -  Initializing Bayes Search
-model_selector:DEBUG 2021-11-30 12:10:47,369 -  The best parameters for the AdaBoost are:
-OrderedDict([('learning_rate', 0.20632825991117332), ('loss', 'exponential'), ('n_estimators', 1822)])
-model_selector:DEBUG 2021-11-30 12:10:47,471 -  The AdaBoost score was: 3752.1312591772667
-model_selector:DEBUG 2021-11-30 12:10:47,471 -  Testing the xgboost model
-model_selector:DEBUG 2021-11-30 12:10:47,613 -  The XGBoost score was: 3376.592375688016
-model_selector:DEBUG 2021-11-30 12:10:47,613 -  Finding the best scoring model
-model_selector:DEBUG 2021-11-30 12:10:47,613 -  The best model is: Random Forest
-model_selector:DEBUG 2021-11-30 12:10:47,613 -  Ending Class
+__main__:DEBUG 2023-04-21 23:48:12,501 -  Creating X and y dataframes
+__main__:DEBUG 2023-04-21 23:48:12,502 -  Creating train test split
+__main__:DEBUG 2023-04-21 23:48:12,504 -  Creating the xgboost model for feature importance check
+__main__:DEBUG 2023-04-21 23:48:12,507 -  Initializing Bayes Search
+__main__:DEBUG 2023-04-21 23:48:20,173 -  The best parameters for the xgboost are:
+OrderedDict([('colsample_bytree', 0.519663437301463), ('learning_rate', 0.362171589487346), ('max_depth', 70), ('n_estimators', 115), ('reg_alpha', 82.95674878096297), ('subsample', 0.21641405062882485)])
+__main__:DEBUG 2023-04-21 23:48:20,409 -  Plotting features
+__main__:DEBUG 2023-04-21 23:48:20,948 -  Dropping low importance features
+__main__:DEBUG 2023-04-21 23:48:20,950 -  Testing the linear regression model
+__main__:DEBUG 2023-04-21 23:48:20,953 -  The Linear Regressor score was: 1087.9696257707226
+__main__:DEBUG 2023-04-21 23:48:20,955 -  Testing the Elastic Net model
+__main__:DEBUG 2023-04-21 23:48:20,955 -  Initializing Bayes Search
+__main__:DEBUG 2023-04-21 23:48:21,200 -  The best parameters for the Elastic Net are:
+OrderedDict([('alpha', 0.5131288564118823), ('l1_ratio', 0.9677812410962722), ('max_iter', 3771)])
+__main__:DEBUG 2023-04-21 23:48:21,203 -  The Elastic Net score was: 1087.9582198933047
+__main__:DEBUG 2023-04-21 23:48:21,206 -  Testing the Decision Tree model
+__main__:DEBUG 2023-04-21 23:48:21,206 -  Initializing Bayes Search
+__main__:DEBUG 2023-04-21 23:48:21,531 -  The best parameters for the Decision Tree are:
+OrderedDict([('criterion', 'poisson'), ('max_depth', 1560), ('max_leaf_nodes', 317), ('min_samples_split', 34), ('splitter', 'best')])
+__main__:DEBUG 2023-04-21 23:48:21,545 -  The Decision Tree score was: 1298.5838387574743
+__main__:DEBUG 2023-04-21 23:48:21,548 -  Testing the Random Forest model
+__main__:DEBUG 2023-04-21 23:48:21,548 -  Initializing Bayes Search
+__main__:DEBUG 2023-04-21 23:49:42,300 -  The best parameters for the Random Forest are:
+OrderedDict([('criterion', 'poisson'), ('max_depth', 1195), ('max_leaf_nodes', 966), ('min_samples_split', 82), ('n_estimators', 800)])
+__main__:DEBUG 2023-04-21 23:49:43,114 -  The Random Forest score was: 989.4528517134669
+__main__:DEBUG 2023-04-21 23:49:43,116 -  Testing the AdaBoost model
+__main__:DEBUG 2023-04-21 23:49:43,116 -  Initializing Bayes Search
+__main__:DEBUG 2023-04-21 23:49:57,568 -  The best parameters for the AdaBoost are:
+OrderedDict([('learning_rate', 0.20424104853441424), ('loss', 'exponential'), ('n_estimators', 2997)])
+__main__:DEBUG 2023-04-21 23:49:57,643 -  The AdaBoost score was: 1157.5728232461643
+__main__:DEBUG 2023-04-21 23:49:57,643 -  Testing the xgboost model
+__main__:DEBUG 2023-04-21 23:49:57,864 -  The XGBoost score was: 973.8795632705742
+__main__:DEBUG 2023-04-21 23:49:57,864 -  Finding the best scoring model
+__main__:DEBUG 2023-04-21 23:49:57,864 -  The best model is: XGBoost
+__main__:DEBUG 2023-04-21 23:49:57,864 -  Ending Class

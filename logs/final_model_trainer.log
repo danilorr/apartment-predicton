@@ -1,63 +1,63 @@
-final_model_trainer:DEBUG 2021-11-30 12:10:47,642 -  Starting Class
-final_model_trainer:DEBUG 2021-11-30 12:10:47,644 -  Current train.head()
+__main__:DEBUG 2023-04-22 17:40:43,218 -  Starting Class
+__main__:DEBUG 2023-04-22 17:40:43,243 -  Current train.head()
    District  Area (m²)  Condominium Fee (R$)  Rent (R$)
-0        66        172                  1700       6200
-1        20         50                   390       1800
-2        42         70                   747       1800
-3         4         90                   750       2600
-4        74         50                   781       1100
-final_model_trainer:DEBUG 2021-11-30 12:10:47,648 -  Current train.info()
+0        26         85                  1170       4485
+1        13         40                   500       1600
+2        16         90                   765       4100
+3         2         65                   800       3300
+4         9         90                  1300       7300
+__main__:DEBUG 2023-04-22 17:40:43,248 -  Current train.info()
 <class 'pandas.core.frame.DataFrame'>
-Int64Index: 7892 entries, 0 to 7891
+Int64Index: 6870 entries, 0 to 6869
 Data columns (total 4 columns):
  #   Column                Non-Null Count  Dtype
 ---  ------                --------------  -----
- 0   District              7892 non-null   int8 
- 1   Area (m²)             7892 non-null   int16
- 2   Condominium Fee (R$)  7892 non-null   int32
- 3   Rent (R$)             7892 non-null   int32
+ 0   District              6870 non-null   int8 
+ 1   Area (m²)             6870 non-null   int16
+ 2   Condominium Fee (R$)  6870 non-null   int32
+ 3   Rent (R$)             6870 non-null   int32
 dtypes: int16(1), int32(2), int8(1)
-memory usage: 146.4 KB
+memory usage: 127.5 KB
 
-final_model_trainer:DEBUG 2021-11-30 12:10:47,650 -  Current test.head()
+__main__:DEBUG 2023-04-22 17:40:43,251 -  Current test.head()
    District  Area (m²)  Condominium Fee (R$)
-0        39         50                   831
-1        11         43                   580
-2        42         65                   600
-3         7         68                   900
-4        16         68                  1000
-final_model_trainer:DEBUG 2021-11-30 12:10:47,654 -  Current test.info()
+0        48        128                  1220
+1        27         65                   646
+2        40         61                   660
+3        32         84                  1050
+4        29         32                     0
+__main__:DEBUG 2023-04-22 17:40:43,255 -  Current test.info()
 <class 'pandas.core.frame.DataFrame'>
-Int64Index: 1973 entries, 0 to 1972
+Int64Index: 1718 entries, 0 to 1717
 Data columns (total 3 columns):
  #   Column                Non-Null Count  Dtype
 ---  ------                --------------  -----
- 0   District              1973 non-null   int8 
- 1   Area (m²)             1973 non-null   int16
- 2   Condominium Fee (R$)  1973 non-null   int32
+ 0   District              1718 non-null   int8 
+ 1   Area (m²)             1718 non-null   int16
+ 2   Condominium Fee (R$)  1718 non-null   int32
 dtypes: int16(1), int32(1), int8(1)
-memory usage: 28.9 KB
+memory usage: 25.2 KB
 
-final_model_trainer:DEBUG 2021-11-30 12:10:47,655 -  Current test_leakage.head()
+__main__:DEBUG 2023-04-22 17:40:43,257 -  Current test_leakage.head()
    Rent (R$)
-0       2591
-1       2800
-2       1320
-3       8000
-4       2500
-final_model_trainer:DEBUG 2021-11-30 12:10:47,658 -  Current test_leakage.info()
+0       7000
+1       1800
+2       1700
+3       3500
+4       1100
+__main__:DEBUG 2023-04-22 17:40:43,260 -  Current test_leakage.info()
 <class 'pandas.core.frame.DataFrame'>
-Int64Index: 1973 entries, 0 to 1972
+Int64Index: 1718 entries, 0 to 1717
 Data columns (total 1 columns):
  #   Column     Non-Null Count  Dtype
 ---  ------     --------------  -----
- 0   Rent (R$)  1973 non-null   int32
+ 0   Rent (R$)  1718 non-null   int32
 dtypes: int32(1)
-memory usage: 23.1 KB
+memory usage: 20.1 KB
 
-final_model_trainer:DEBUG 2021-11-30 12:10:47,658 -  Creating X and y dataframes
-final_model_trainer:DEBUG 2021-11-30 12:10:47,659 -  Training model
-final_model_trainer:DEBUG 2021-11-30 12:10:52,301 -  Predicting test df
-final_model_trainer:DEBUG 2021-11-30 12:10:52,436 -  Creating test_leakage_prediction.csv
-final_model_trainer:DEBUG 2021-11-30 12:10:52,441 -  The Random Forest final score was: 3285.0946460108053
-final_model_trainer:DEBUG 2021-11-30 12:10:52,441 -  Ending Class
+__main__:DEBUG 2023-04-22 17:40:43,260 -  Creating X and y dataframes
+__main__:DEBUG 2023-04-22 17:40:43,261 -  Training model
+__main__:DEBUG 2023-04-22 17:40:47,763 -  Predicting test df
+__main__:DEBUG 2023-04-22 17:40:47,917 -  Creating test_leakage_prediction.csv
+__main__:DEBUG 2023-04-22 17:40:47,933 -  The Random Forest final score was: 1037.496394933215
+__main__:DEBUG 2023-04-22 17:40:47,933 -  Ending Class

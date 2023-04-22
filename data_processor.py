@@ -1,7 +1,6 @@
 import logging
 from io import StringIO
 import pandas as pd
-from fuzzywuzzy import process
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
@@ -34,7 +33,7 @@ class DataProcessor:
         self.turn_address_feature_into_district()
         self.rename_full_df_columns()
         self.full_df_current_state(self.buf2)
-        self.district_string_similarity_test()
+        # self.district_string_similarity_test()
         self.group_less_frequent_districts()
         self.create_total_value_features()
         self.drop_features_outliers()
@@ -107,6 +106,7 @@ class DataProcessor:
         self.full_df = self.full_df.rename(columns={'Address': 'District', 'Area': 'Area (m²)',
                                                     'Rent': 'Rent (R$)', 'Condominium': 'Condominium Fee (R$)'})
 
+    '''
     def district_string_similarity_test(self):
         self.logger.debug('Checking the similarity among District strings')
         # Taking the index of the 10 most frequent districts
@@ -119,34 +119,27 @@ class DataProcessor:
         # But the list was shortened to 10 as an illustration since the more complete comparison
         # ended having the same result
         self.logger.debug('None of them is a misspelling of the other, therefore no corrections needed')
-
+    '''
+        
     def group_less_frequent_districts(self):
         self.logger.debug('Grouping the less frequent districts into a single category')
-        # The bottom 403 districts were chosen to be grouped up
-        other_district = self.full_df['District'].value_counts().tail(403).index
-        for district in other_district:
-            # Looping through all the bottom districts and renaming them as 'Outro'
-            self.full_df.loc[self.full_df['District'] == district, 'District'] = 'Outro'
+        # All districts but the top 50 were chosen to be grouped up
+        top50_districts = self.full_df['District'].value_counts(dropna=False).head(50).index
+        self.full_df.loc[~(self.full_df['District'].isin(top50_districts)), 'District'] = 'Other'
 
     def create_total_value_features(self):
         self.logger.debug('Creating Total Value and Value per m² features')
         self.full_df['Total Value (R$)'] = self.full_df['Rent (R$)'] + self.full_df['Condominium Fee (R$)']
         self.full_df['Value per m²'] = (self.full_df['Total Value (R$)'] / self.full_df['Area (m²)']).astype('float32')
 
-    def drop_outliers(self, feature, drop_list):
-        self.logger.debug(f"Looking into apartments with largest {feature} values through value_counts():\n"
-                          f"{self.full_df[feature].value_counts().sort_index(ascending=False).head(10)}")
-        self.logger.debug(f"Dropping the following item(s):\n{self.full_df[self.full_df.index.isin(drop_list)]}")
-        self.full_df = self.full_df.drop(drop_list)
-
     def drop_features_outliers(self):
-        self.drop_outliers('Area (m²)', [8556])
-        self.drop_outliers('Bedrooms', [4771])
-        self.drop_outliers('Garage Cars', [8559, 2442, 554, 2644, 8971])
-        self.drop_outliers('Rent (R$)', [2756, 9854, 5046, 2025])
-        self.drop_outliers('Condominium Fee (R$)', [5515, 9220, 7939, 551, 6957, 5294, 4715, 96, 9755, 1469, 6960])
-        self.drop_outliers('Value per m²', [5457, 5079, 9368, 54, 7999, 6746, 8806,
-                                            6180, 2684, 7539, 4615, 7415, 4300, 3837, 6477])
+        self.full_df = self.full_df.loc[self.full_df['Area (m²)'] < self.full_df['Area (m²)'].quantile(0.975)]
+        self.full_df = self.full_df.loc[self.full_df['Bedrooms'] < 5]
+        self.full_df = self.full_df.loc[self.full_df['Bathrooms'] < 7]
+        self.full_df = self.full_df.loc[self.full_df['Garage Cars'] < 5]
+        self.full_df = self.full_df.loc[self.full_df['Rent (R$)'] < self.full_df['Rent (R$)'].quantile(0.95)]
+        self.full_df = self.full_df.loc[self.full_df['Condominium Fee (R$)'] < self.full_df['Condominium Fee (R$)'].quantile(0.95)]
+        self.full_df = self.full_df.loc[self.full_df['Value per m²'] < self.full_df['Value per m²'].quantile(0.99)].reset_index(drop=True)
 
     def create_full_df_csv(self):
         self.logger.debug('Creating full_df.csv')
@@ -187,3 +180,8 @@ class DataProcessor:
         self.logger.debug('Creating train.csv')
         self.train = self.X_train.join(self.y_train).reset_index(drop=True)
         self.train.to_csv(r'.csv files/train.csv')
+
+
+if __name__ == '__main__':
+    data_processor = DataProcessor()
+    data_processor.start()

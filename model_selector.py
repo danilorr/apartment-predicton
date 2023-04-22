@@ -39,7 +39,7 @@ class ModelSelector:
         self.dectree = DecisionTreeRegressor(random_state=42)
         self.forest = RandomForestRegressor(random_state=42)
         self.adab = AdaBoostRegressor(random_state=42)
-        self.xgb = XGBRegressor(eval_metric=self.scorer, verbosity=0, random_state=42)
+        self.xgb = XGBRegressor(eval_metric=mse, verbosity=0, random_state=42)
         self.score_dic = {}
         self.buf1 = StringIO()
         self.buf2 = StringIO()
@@ -102,7 +102,6 @@ class ModelSelector:
             self.xgb.attribute = value
         self.xgb.fit(self.X_train,
                      self.y_train,
-                     eval_metric="rmse",
                      eval_set=[(self.X_train, self.y_train), (self.X_test, self.y_test)],
                      early_stopping_rounds=20)
 
@@ -176,7 +175,6 @@ class ModelSelector:
             self.xgb.attribute = value
         self.xgb.fit(self.X_train,
                      self.y_train,
-                     eval_metric="rmse",
                      eval_set=[(self.X_train, self.y_train), (self.X_test, self.y_test)],
                      early_stopping_rounds=20)
         self.model_scorer(self.xgb, 'XGBoost')
@@ -187,3 +185,8 @@ class ModelSelector:
         model_scores = list(self.score_dic.values())
         best_model_index = model_scores.index(min(model_scores))
         self.logger.debug(f'The best model is: {model_names[best_model_index]}')
+
+
+if __name__ == '__main__':
+    model_selector = ModelSelector()
+    model_selector.start()

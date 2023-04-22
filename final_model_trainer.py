@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error as mse
+import pickle
 
 
 class ModelTrainer:
@@ -59,11 +60,12 @@ class ModelTrainer:
     def train_model(self):
         self.logger.debug('Training model')
         self.forest = RandomForestRegressor(
-            max_depth=89,
-            max_leaf_nodes=859,
-            min_samples_split=185,
-            n_estimators=710)
+            max_depth=1195,
+            max_leaf_nodes=966,
+            min_samples_split=82,
+            n_estimators=800)
         self.forest.fit(self.X, self.y)
+        pickle.dump(self.forest, open('trained_model.pkl', 'wb'))
 
     def make_prediction(self):
         self.logger.debug('Predicting test df')
@@ -83,3 +85,8 @@ class ModelTrainer:
     def web_model(self):
         self.create_x_and_y_dfs()
         self.train_model()
+
+
+if __name__ == '__main__':
+    model_trainer = ModelTrainer()
+    model_trainer.start()
